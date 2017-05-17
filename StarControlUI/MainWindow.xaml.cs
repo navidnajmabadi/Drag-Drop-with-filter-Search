@@ -24,8 +24,6 @@ namespace StarControlUI
         public MainWindow()
         {
             InitializeComponent();
-
-
         }
     }
        

@@ -33,14 +33,11 @@ namespace StarControlUI
             DragDropManager.AddDragDropCompletedHandler(ApplicationList, OnDragCompleted);
             DragDropManager.AddDropHandler(ApplicationList, OnDrop);
         }
-
-
         public ObservableCollection<ApplicationInfo> MyItems
         {
             get { return (ObservableCollection<ApplicationInfo>)GetValue(MyItemsProperty); }
             set { SetValue(MyItemsProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for MyItems.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MyItemsProperty =
             DependencyProperty.Register("MyItems", typeof(ObservableCollection<ApplicationInfo>), typeof(DragDropUC), new PropertyMetadata(new ObservableCollection<ApplicationInfo>()));
@@ -53,6 +50,7 @@ namespace StarControlUI
                 MyItems.Add(item1);
         }
 
+        #region methods for Drag and Drop
 
         private void OnDragInitialize(object sender, DragInitializeEventArgs args)
         {
@@ -91,7 +89,7 @@ namespace StarControlUI
             var data = DragDropPayloadManager.GetDataFromObject(args.Data, "DragData");
             //  ((IList)(sender as ListBox).ItemsSource).Remove(data);
         }
-
+        #endregion
     }
     public static class Extensions
     {
